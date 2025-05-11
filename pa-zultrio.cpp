@@ -14,7 +14,6 @@ struct Tiket {
     double harga;
     bool kausKaki;
     double totalHarga;
-    string KodeTiket;
     string status;
 };
 
@@ -558,7 +557,7 @@ void hapusTiket() {
     string NamaPembeli;
     for (int i = 0; i < jumlahTiket - 1; i++) {
         for (int j = 0; j < jumlahTiket - i - 1; j++) {
-            if (daftarTiket[j].KodeTiket > daftarTiket[j + 1].KodeTiket) {
+            if (daftarTiket[j].Pembeli > daftarTiket[j + 1].Pembeli) {
                 swap(daftarTiket[j], daftarTiket[j + 1]);
             }
         }
