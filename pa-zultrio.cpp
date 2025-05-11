@@ -459,17 +459,7 @@ void ubahTiket() {
             }
         }
     }
-    cout << setw(10) << "No" << setw(15) << "Pembeli" << setw(15) << "Hari" << setw(15) << "Durasi" << setw(10) << "Harga" << setw(15) << "Kaus Kaki" << setw(15) << "Total Harga" << setw(15) << "Status" << endl;
-        for (int i = 0; i < jumlahTiket; i++) {
-            cout << setw(10) << (i + 1) 
-                 << setw(15) << daftarTiket[i].Pembeli
-                 << setw(15) << daftarTiket[i].hari
-                 << setw(15) << daftarTiket[i].durasi
-                 << setw(10) << daftarTiket[i].harga
-                 << setw(15) << (daftarTiket[i].kausKaki ? "0" : "10.000")
-                 << setw(15) << daftarTiket[i].totalHarga
-                 << setw(15) << daftarTiket[i].status << endl;
-        }
+    tampilkanTiket();
     cout << "Masukkan Nama Pembeli: ";
     cin >> NamaPembeli;
     int index = interpolationSearch(NamaPembeli);
@@ -563,17 +553,7 @@ void hapusTiket() {
             }
         }
     }
-    cout << setw(10) << "No" << setw(15) << "Pembeli" << setw(15) << "Hari" << setw(15) << "Durasi" << setw(10) << "Harga" << setw(15) << "Kaus Kaki" << setw(15) << "Total Harga" << setw(15) << "Status" << endl;
-        for (int i = 0; i < jumlahTiket; i++) {
-            cout << setw(10) << (i + 1) 
-                 << setw(15) << daftarTiket[i].Pembeli
-                 << setw(15) << daftarTiket[i].hari
-                 << setw(15) << daftarTiket[i].durasi
-                 << setw(10) << daftarTiket[i].harga
-                 << setw(15) << (daftarTiket[i].kausKaki ? "0" : "10.000")
-                 << setw(15) << daftarTiket[i].totalHarga
-                 << setw(15) << daftarTiket[i].status << endl;
-        }
+    tampilkanTiket();
     cout << "Masukkan Nama Pembeli: ";
     cin >> NamaPembeli;
     int index = interpolationSearch(NamaPembeli);
