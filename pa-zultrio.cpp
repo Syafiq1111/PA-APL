@@ -214,6 +214,7 @@ void menuTiketAdmin() {
                     beliTiketAdmin();
                     break;
                 case 2:
+                    cout << "=== MENU TAMPILKAN TIKET ===" << endl;
                     tampilkanTiket();
                     break;
                 case 3:
@@ -277,6 +278,7 @@ void menuTiketUser(const User& userLogin) {
                     beliTiketUser(userLogin);
                     break;
                 case 2:
+                    cout << "=== MENU TAMPILKAN TIKET ===" << endl;
                     tampilkanTiket();
                     break;
                 case 3:
@@ -404,8 +406,7 @@ void beliTiketUser(const User& userLogin) {
     }
 }
 
-void tampilkanTiket() {
-    cout << "=== MENU TAMPILKAN TIKET ===" << endl;    
+void tampilkanTiket() {    
     if (jumlahTiket == 0) {
         cout << "Tidak ada tiket tersedia" << endl;
     } else {
