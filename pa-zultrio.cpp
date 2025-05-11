@@ -452,8 +452,6 @@ int interpolationSearch(string NamaPembeli) {
 void ubahTiket() {
     cout << "=== MENU UBAH TIKET ===" << endl;      
     string NamaPembeli;
-    cout << "Masukkan Nama Pembeli: ";
-    cin >> NamaPembeli;
     for (int i = 0; i < jumlahTiket - 1; i++) {
         for (int j = 0; j < jumlahTiket - i - 1; j++) {
             if (daftarTiket[j].Pembeli > daftarTiket[j + 1].Pembeli) {
@@ -461,6 +459,19 @@ void ubahTiket() {
             }
         }
     }
+    cout << setw(10) << "No" << setw(15) << "Pembeli" << setw(15) << "Hari" << setw(15) << "Durasi" << setw(10) << "Harga" << setw(15) << "Kaus Kaki" << setw(15) << "Total Harga" << setw(15) << "Status" << endl;
+        for (int i = 0; i < jumlahTiket; i++) {
+            cout << setw(10) << (i + 1) 
+                 << setw(15) << daftarTiket[i].Pembeli
+                 << setw(15) << daftarTiket[i].hari
+                 << setw(15) << daftarTiket[i].durasi
+                 << setw(10) << daftarTiket[i].harga
+                 << setw(15) << (daftarTiket[i].kausKaki ? "0" : "10.000")
+                 << setw(15) << daftarTiket[i].totalHarga
+                 << setw(15) << daftarTiket[i].status << endl;
+        }
+    cout << "Masukkan Nama Pembeli: ";
+    cin >> NamaPembeli;
     int index = interpolationSearch(NamaPembeli);
     if (index == -1) {
         cout << "Tiket dengan kode tersebut tidak ditemukan!" << endl;
@@ -544,9 +555,7 @@ void ubahTiket() {
 
 void hapusTiket() {
     cout << "=== MENU HAPUS TIKET ===" << endl;  
-    string kode;
-    cout << "Masukkan Nama Pembeli: ";
-    cin >> kode;
+    string NamaPembeli;
     for (int i = 0; i < jumlahTiket - 1; i++) {
         for (int j = 0; j < jumlahTiket - i - 1; j++) {
             if (daftarTiket[j].KodeTiket > daftarTiket[j + 1].KodeTiket) {
@@ -554,7 +563,20 @@ void hapusTiket() {
             }
         }
     }
-    int index = interpolationSearch(kode);
+    cout << setw(10) << "No" << setw(15) << "Pembeli" << setw(15) << "Hari" << setw(15) << "Durasi" << setw(10) << "Harga" << setw(15) << "Kaus Kaki" << setw(15) << "Total Harga" << setw(15) << "Status" << endl;
+        for (int i = 0; i < jumlahTiket; i++) {
+            cout << setw(10) << (i + 1) 
+                 << setw(15) << daftarTiket[i].Pembeli
+                 << setw(15) << daftarTiket[i].hari
+                 << setw(15) << daftarTiket[i].durasi
+                 << setw(10) << daftarTiket[i].harga
+                 << setw(15) << (daftarTiket[i].kausKaki ? "0" : "10.000")
+                 << setw(15) << daftarTiket[i].totalHarga
+                 << setw(15) << daftarTiket[i].status << endl;
+        }
+    cout << "Masukkan Nama Pembeli: ";
+    cin >> NamaPembeli;
+    int index = interpolationSearch(NamaPembeli);
     if (index == -1) {
         cout << "Tiket dengan kode tersebut tidak ditemukan!" << endl;
         return;
