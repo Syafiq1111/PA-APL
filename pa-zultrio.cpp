@@ -24,7 +24,7 @@ struct User {
     string role; 
 };
 
-User daftarUser[40] = { {"Nadia Rahmah", "018", "admin"} };
+User daftarUser[40] = { {"admin", "admin1", "admin"} };
 int jumlahUser = 1;
 Tiket daftarTiket[MaxTiket];
 int jumlahTiket = 0;
