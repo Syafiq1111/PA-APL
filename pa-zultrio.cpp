@@ -14,7 +14,6 @@ struct Tiket {
     double harga;
     bool kausKaki;
     double totalHarga;
-    string KodeTiket;
     string status;
 };
 
@@ -215,6 +214,7 @@ void menuTiketAdmin() {
                     beliTiketAdmin();
                     break;
                 case 2:
+                    cout << "=== MENU TAMPILKAN TIKET ===" << endl;
                     tampilkanTiket();
                     break;
                 case 3:
@@ -278,6 +278,7 @@ void menuTiketUser(const User& userLogin) {
                     beliTiketUser(userLogin);
                     break;
                 case 2:
+                    cout << "=== MENU TAMPILKAN TIKET ===" << endl;
                     tampilkanTiket();
                     break;
                 case 3:
@@ -405,8 +406,7 @@ void beliTiketUser(const User& userLogin) {
     }
 }
 
-void tampilkanTiket() {
-    cout << "=== MENU TAMPILKAN TIKET ===" << endl;    
+void tampilkanTiket() {    
     if (jumlahTiket == 0) {
         cout << "Tidak ada tiket tersedia" << endl;
     } else {
@@ -452,8 +452,6 @@ int interpolationSearch(string NamaPembeli) {
 void ubahTiket() {
     cout << "=== MENU UBAH TIKET ===" << endl;      
     string NamaPembeli;
-    cout << "Masukkan Nama Pembeli: ";
-    cin >> NamaPembeli;
     for (int i = 0; i < jumlahTiket - 1; i++) {
         for (int j = 0; j < jumlahTiket - i - 1; j++) {
             if (daftarTiket[j].Pembeli > daftarTiket[j + 1].Pembeli) {
@@ -461,6 +459,9 @@ void ubahTiket() {
             }
         }
     }
+    tampilkanTiket();
+    cout << "Masukkan Nama Pembeli: ";
+    cin >> NamaPembeli;
     int index = interpolationSearch(NamaPembeli);
     if (index == -1) {
         cout << "Tiket dengan kode tersebut tidak ditemukan!" << endl;
@@ -475,6 +476,7 @@ void ubahTiket() {
          << "Kaus Kaki: " << (tiket.kausKaki ? "Ya" : "Tidak") << endl
          << "Total Harga: " << tiket.totalHarga << endl
          << "Status: " << tiket.status << endl;
+         
     char konfirmasi;
     while (true){
         cout << "\nApakah Anda yakin ingin mengubah tiket ini? (Y/N): ";
@@ -544,17 +546,18 @@ void ubahTiket() {
 
 void hapusTiket() {
     cout << "=== MENU HAPUS TIKET ===" << endl;  
-    string kode;
-    cout << "Masukkan Nama Pembeli: ";
-    cin >> kode;
+    string NamaPembeli;
     for (int i = 0; i < jumlahTiket - 1; i++) {
         for (int j = 0; j < jumlahTiket - i - 1; j++) {
-            if (daftarTiket[j].KodeTiket > daftarTiket[j + 1].KodeTiket) {
+            if (daftarTiket[j].Pembeli > daftarTiket[j + 1].Pembeli) {
                 swap(daftarTiket[j], daftarTiket[j + 1]);
             }
         }
     }
-    int index = interpolationSearch(kode);
+    tampilkanTiket();
+    cout << "Masukkan Nama Pembeli: ";
+    cin >> NamaPembeli;
+    int index = interpolationSearch(NamaPembeli);
     if (index == -1) {
         cout << "Tiket dengan kode tersebut tidak ditemukan!" << endl;
         return;
